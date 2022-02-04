@@ -1,0 +1,8 @@
+pandas
+numpy=1.22.2
+psycopg2
+requests
+beautifulsoup4
+nltk
+scipy=1.7.3
+sklearn=1.0.2
