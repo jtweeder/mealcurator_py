@@ -9,7 +9,7 @@ class postgre():
         self.connection = psycopg2.connect(user=os.getenv('POSTGRES_USER'),
                                            password=os.getenv('POSTGRES_PW'),
                                            host=os.getenv('POSTGRESIP'),
-                                           port="5432",
+                                           port=os.getenv('POSTGRESPORT'),
                                            database=os.getenv('POSTGRES_DB'))
 
     def select(self, sql, idx=None):
@@ -43,10 +43,15 @@ class postgre():
         # TODO
         return
 
-    def update(self):
-        # TODO
+    def update(self, update_sql):
+        cursor = self.connection.cursor()
+        cursor.execute(update_sql)
+        cursor.close()
+        self.connection.commit()
         return
+
 
     def delete(self):
         # TODO
         return
+    
