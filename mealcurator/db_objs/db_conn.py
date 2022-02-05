@@ -43,10 +43,15 @@ class postgre():
         # TODO
         return
 
-    def update(self):
-        # TODO
+    def update(self, update_sql):
+        cursor = self.connection.cursor()
+        cursor.execute(update_sql)
+        cursor.close()
+        self.connection.commit()
         return
+
 
     def delete(self):
         # TODO
         return
+    
