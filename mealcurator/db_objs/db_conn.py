@@ -39,17 +39,12 @@ class postgre():
         cursor.close()
         return select_df
 
-    def insert(self):
-        # TODO
-        return
-
-    def update(self, update_sql):
+    def insert_update(self, sql, vals):
         cursor = self.connection.cursor()
-        cursor.execute(update_sql)
+        cursor.execute(sql, vals)
         cursor.close()
         self.connection.commit()
         return
-
 
     def delete(self):
         # TODO
