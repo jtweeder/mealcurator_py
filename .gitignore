@@ -5,3 +5,4 @@ mealcurator/db_objs/__pycache__/db_conn.cpython-310.pyc
 mealcurator/url_digest/__pycache__/__init__.cpython-310.pyc
 mealcurator/url_digest/__pycache__/url.cpython-310.pyc
 scripts/__pycache__/make_mstr.cpython-310.pyc
+dev/

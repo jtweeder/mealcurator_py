@@ -1,8 +1,9 @@
 pandas
-numpy==1.19.5
+numpy
 psycopg2
 requests
 beautifulsoup4
 nltk
-scipy==1.5.4
-sklearn==0.24.2
+scipy
+sklearn
+
