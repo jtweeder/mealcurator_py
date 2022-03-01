@@ -15,13 +15,13 @@ if len(to_process) > 0:
         try:
             digest = url_reader(data.rec_url)
             title, learned_words = digest.raw_to_mstr()
-            insert_sql = """INSERT INTO meals_mstr_recipe (meal_id, title, rec_url, vegan, vegetarian, meal_time, dish_type, cooking_method, cooking_time, times_selected, upvote, downvote, found_words)
-                            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);
+            insert_sql = """INSERT INTO meals_mstr_recipe (meal_id, title, rec_url, vegan, vegetarian, meal_time, dish_type, cooking_method, cooking_time, protein_type, times_selected, upvote, downvote, found_words)
+                            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);
                             """
             vals = (uuid.uuid1(), title, data.rec_url, data.vegan,
                     data.vegetarian, data.meal_time, data.dish_type,
-                    data.cooking_method, data.cooking_time, 0, 0, 0,
-                    learned_words)
+                    data.cooking_method, data.cooking_time, data.protein_type,
+                    0, 0, 0, learned_words)
             instance.insert_update(insert_sql, vals)
             update_sql = """UPDATE meals_raw_recipe
                             SET mstr_flag=true WHERE id=%(idx)s;"""

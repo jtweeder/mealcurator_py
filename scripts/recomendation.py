@@ -37,7 +37,8 @@ sql = """
         ,mmr.meal_time 
         ,mmr.dish_type 
         ,mmr.cooking_method 
-        ,mmr.cooking_time 
+        ,mmr.cooking_time
+        ,mmr.protein_type
         ,mmr.times_selected 
         ,mmr.upvote 
         ,mmr.downvote
@@ -46,7 +47,7 @@ sql = """
         from meals_mstr_recipe mmr
     """
 mstr_recipes = instance.select(sql, 'meal_id')
-mstr_recipes = pd.get_dummies(mstr_recipes, columns=['vegan', 'vegetarian', 'meal_time','dish_type','cooking_method','cooking_time'])
+mstr_recipes = pd.get_dummies(mstr_recipes, columns=['vegan', 'vegetarian', 'meal_time','dish_type','cooking_method','cooking_time', 'protein_type'])
 # cook_ratings = cook_ratings.join(mstr_recipes, on='meal_id')
 
 # known = cook_ratings[cook_ratings.owner_id ==1]
