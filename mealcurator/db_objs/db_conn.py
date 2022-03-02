@@ -50,7 +50,7 @@ class postgre():
     def insert_df(self, df, table, trunc=False):
         if trunc:
             cursor = self.connection.cursor()
-            cursor.execute('Truncate table %s' % table)
+            cursor.execute('Truncate table %s  restart identity' % table)
             cursor.close()
             self.connection.commit()
 
